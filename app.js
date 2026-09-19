@@ -33,10 +33,10 @@ allButtonDeactivate();
 function judgeAnswer(select, answer) {
   if (select == answer) {
     judgeSentence.textContent = "正解";
-    judgeSentence.classList.add = "correct";
+    judgeSentence.classList.add("correct");
     currentCorrectCounter++;
   } else {
-    judgeSentence.classList.add = "incorrect";
+    judgeSentence.classList.add("incorrect");
     judgeSentence.textContent = "不正解";
   }
 
@@ -58,7 +58,7 @@ function judgeAnswer(select, answer) {
       quesSentence.remove();
       sectionChoice.remove();
       const result = document.createElement("h2");
-      result.textContent = "結果：" + currentQuizCounter + "問正解！";
+      result.textContent = "結果：" + currentCorrectCounter + "問正解！";
       htmlBody.appendChild(result);
     }
   });
@@ -100,11 +100,15 @@ startButton.addEventListener("click", () => {
   startButton.disabled = true;
   allButtonActivate();
   //JSONファイルからクイズのデータを取ってくる
-  fetch(url)
+  try{
+    fetch(url)
     .then((response) => response.json())
     .then((data) => {
       quizData = data;
       allQuizNumber = data.length;
       createQuiz();
     });
+  }catch(error){
+    console.error("Error:",error.message);
+  }
 });
