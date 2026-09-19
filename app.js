@@ -31,6 +31,7 @@ function allButtonActivate() {
 allButtonDeactivate();
 
 function judgeAnswer(select, answer) {
+  judgeSentence.classList.remove("correct", "incorrect");
   if (select == answer) {
     judgeSentence.textContent = "正解";
     judgeSentence.classList.add("correct");
@@ -50,7 +51,7 @@ function judgeAnswer(select, answer) {
     button_next.remove();
     judgeSentence.textContent = "";
     allButtonActivate();
-    if (currentQuizCounter  < (allQuizNumber-1)) {
+    if (currentQuizCounter < allQuizNumber - 1) {
       currentQuizCounter++;
       createQuiz();
     } else {
@@ -60,6 +61,23 @@ function judgeAnswer(select, answer) {
       const result = document.createElement("h2");
       result.textContent = "結果：" + currentCorrectCounter + "問正解！";
       htmlBody.appendChild(result);
+
+      //再トライボタン
+      const button_try = document.createElement("button");
+      button_try.textContent = "もう一度";
+      htmlBody.appendChild(button_try);
+      button_try.addEventListener("click", () => {
+        currentCorrectCounter = 0;
+        currentQuizCounter = 0;
+        judgeSentence.remove();
+        htmlBody.appendChild(quesNumber);
+        htmlBody.appendChild(quesSentence);
+        htmlBody.appendChild(sectionChoice);
+        htmlBody.appendChild(judgeSentence);
+        result.remove();
+        button_try.remove();
+        createQuiz();
+      });
     }
   });
 }
@@ -89,8 +107,9 @@ buttonChoice3.addEventListener("click", () => {
 });
 
 function createQuiz() {
-  quesNumber.textContent = (currentQuizCounter + 1)+ "問目" + "/ 全" + allQuizNumber + "問";
-  quesSentence.textContent = "Q." + quizData[currentQuizCounter].question;
+  quesNumber.textContent =
+    currentQuizCounter + 1 + "問目" + "/ 全" + allQuizNumber + "問";
+  quesSentence.textContent = "Q. " + quizData[currentQuizCounter].question;
   buttonChoice1.textContent = quizData[currentQuizCounter].choices[0];
   buttonChoice2.textContent = quizData[currentQuizCounter].choices[1];
   buttonChoice3.textContent = quizData[currentQuizCounter].choices[2];
@@ -100,15 +119,15 @@ startButton.addEventListener("click", () => {
   startButton.disabled = true;
   allButtonActivate();
   //JSONファイルからクイズのデータを取ってくる
-  try{
+  try {
     fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      quizData = data;
-      allQuizNumber = data.length;
-      createQuiz();
-    });
-  }catch(error){
-    console.error("Error:",error.message);
+      .then((response) => response.json())
+      .then((data) => {
+        quizData = data;
+        allQuizNumber = data.length;
+        createQuiz();
+      });
+  } catch (error) {
+    console.error("Error:", error.message);
   }
 });

@@ -4,8 +4,49 @@
     "choices": ["let", "const", "var"],
     "answer": "const"
   },
-  { "question": "apple", "choices": ["a1","b1","c1"], "answer": "a1" },
-  { "question": "grape", "choices": ["a2","b2","c2"], "answer": "b2" },
-  { "question": "melon", "choices": ["a3","b3","c3"], "answer": "c3" },
-  { "question": "lemon", "choices": ["a4","b4","c4"], "answer": "a4" }
+  {
+    "question": "配列の末尾に新しい要素を追加するメソッドは？",
+    "choices": ["push()", "pop()", "shift()"],
+    "answer": "push()"
+  },
+  {
+    "question": "配列の末尾の要素を削除するメソッドは？",
+    "choices": ["push()", "pop()", "unshift()"],
+    "answer": "pop()"
+  },
+  {
+    "question": "HTML要素をidを使って取得するメソッドは？",
+    "choices": ["getElementById()", "getElement()", "queryId()"],
+    "answer": "getElementById()"
+  },
+  {
+    "question": "CSSセレクタを指定して最初のHTML要素を取得するメソッドは？",
+    "choices": ["querySelector()", "createElement()", "appendChild()"],
+    "answer": "querySelector()"
+  },
+  {
+    "question": "新しいHTML要素をJavaScriptから作成するメソッドは？",
+    "choices": ["createElement()", "addElement()", "newElement()"],
+    "answer": "createElement()"
+  },
+  {
+    "question": "クリックなどのイベントに処理を登録するために使うメソッドは？",
+    "choices": ["addEventListener()", "addEvent()", "createListener()"],
+    "answer": "addEventListener()"
+  },
+  {
+    "question": "要素のテキスト内容を設定・取得するプロパティは？",
+    "choices": ["textContent", "textValue", "innerTextContent"],
+    "answer": "textContent"
+  },
+  {
+    "question": "JSON形式のレスポンスをJavaScriptの値として読み取るために使うメソッドは？",
+    "choices": ["response.json()", "response.fetch()", "response.object()"],
+    "answer": "response.json()"
+  },
+  {
+    "question": "例外を意図的に発生させるために使うキーワードは？",
+    "choices": ["throw", "catch", "error"],
+    "answer": "throw"
+  }
 ]
