@@ -1,0 +1,11 @@
+[
+  {
+    "question": "JavaScriptで定数を宣言するときに使うものは？",
+    "choices": ["let", "const", "var"],
+    "answer": "const"
+  },
+  { "question": "apple", "choices": ["a1","b1","c1"], "answer": "a1" },
+  { "question": "grape", "choices": ["a2","b2","c2"], "answer": "b2" },
+  { "question": "melon", "choices": ["a3","b3","c3"], "answer": "c3" },
+  { "question": "lemon", "choices": ["a4","b4","c4"], "answer": "a4" }
+]

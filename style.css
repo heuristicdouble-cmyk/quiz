@@ -1,1 +1,24 @@
 @charset "utf-8";
+
+.button-start{
+
+}
+.ques-number{
+
+}
+.ques-sentence{
+    width: 100%;
+    background-color: rgb(255, 246, 124);
+}
+.section-choice{
+    display: block;
+}
+
+.button-choice1,
+.button-choice2,
+.button-choice3{
+    width: 200px;
+    height: 80px;
+
+    
+}
